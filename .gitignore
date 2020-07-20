@@ -2,7 +2,6 @@ bin
 obj
 run
 runjspec
-jspec2
 *.depend
 *.layout
 *.exe
