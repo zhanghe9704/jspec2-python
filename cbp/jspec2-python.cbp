@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="jspec2-python" />
+		<Option pch_mode="2" />
+		<Option compiler="gnu_gcc_51_x64_compiler" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/jspec2-python" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc_51_x64_compiler" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/jspec2-python" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc_51_x64_compiler" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="../jspec2/include/arbitrary_electron_beam.h" />
+		<Unit filename="../jspec2/include/beam.h" />
+		<Unit filename="../jspec2/include/constants.h" />
+		<Unit filename="../jspec2/include/cooler.h" />
+		<Unit filename="../jspec2/include/ecooling.h" />
+		<Unit filename="../jspec2/include/force.h" />
+		<Unit filename="../jspec2/include/functions.h" />
+		<Unit filename="../jspec2/include/ibs.h" />
+		<Unit filename="../jspec2/include/ions.h" />
+		<Unit filename="../jspec2/include/luminosity.h" />
+		<Unit filename="../jspec2/include/math_parser.h" />
+		<Unit filename="../jspec2/include/muParserDLL.h" />
+		<Unit filename="../jspec2/include/particle_model.h" />
+		<Unit filename="../jspec2/include/ring.h" />
+		<Unit filename="../jspec2/include/rms_dynamic.h" />
+		<Unit filename="../jspec2/include/simulator.h" />
+		<Unit filename="../jspec2/include/turn_by_turn.h" />
+		<Unit filename="../jspec2/src/arbitrary_electron_beam.cc" />
+		<Unit filename="../jspec2/src/beam.cc" />
+		<Unit filename="../jspec2/src/ecooling.cc" />
+		<Unit filename="../jspec2/src/force.cc" />
+		<Unit filename="../jspec2/src/functions.cc" />
+		<Unit filename="../jspec2/src/ibs.cc" />
+		<Unit filename="../jspec2/src/ions.cc" />
+		<Unit filename="../jspec2/src/luminosity.cc" />
+		<Unit filename="../jspec2/src/math_parser.cc" />
+		<Unit filename="../jspec2/src/particle_model.cc" />
+		<Unit filename="../jspec2/src/ring.cc" />
+		<Unit filename="../jspec2/src/rms_dynamic.cc" />
+		<Unit filename="../jspec2/src/simulator.cc" />
+		<Unit filename="../jspec2/src/turn_by_turn.cc" />
+		<Unit filename="../src/jspec2_python.cc" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
