@@ -6,7 +6,7 @@ TARGET_LIB = $(NAME)$(VERSION)
 INCDIR = jspec2/include
 LIBDIR = jspec2/lib
 PYTHON_INC = $(shell python3 -m pybind11 --includes)
-CFLAGS = -O3 -Wall -shared -std=c++11 -fPIC $(PYTHON_INC) -I$(INCDIR)
+CFLAGS = -O3 -Wall -shared -std=c++14 -fPIC $(PYTHON_INC) -I$(INCDIR)
 
 #LIBS = -lm -lgsl -lgslcblas
 LIBS =  -L$(LIBDIR) -s -Wl,-rpath=$(LIBDIR) -lm -l:libmuparser.so.2 -lgsl -lgslcblas

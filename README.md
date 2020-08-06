@@ -14,7 +14,7 @@ This code is developed  using the C++ jspec program (<https://github.com/zhanghe
 
 Here I will show you how to compile and use the code in Ubuntu. The following command are tested in Ubuntu 18.04. 
 
-To compile the codes, you will need a C++ compiler that supports C++ 11 standard, make, python3 and pybind11.  If you do not have the above programs in your system, you can install them using the following commands. 
+To compile the codes, you will need a C++ compiler that supports C++ 14 standard, make, python3 and pybind11.  If you do not have the above programs in your system, you can install them using the following commands. 
 
 ```
 sudo apt install build-essential 
