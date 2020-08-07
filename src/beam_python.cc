@@ -5,7 +5,6 @@
 #include <tuple>
 #include <vector>
 
-#include "../jspec2/include/ring.h"
 #include "../jspec2/include/beam.h"
 
 namespace py=pybind11;
