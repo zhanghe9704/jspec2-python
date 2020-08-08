@@ -62,7 +62,13 @@
 		<Unit filename="../jspec2/src/rms_dynamic.cc" />
 		<Unit filename="../jspec2/src/simulator.cc" />
 		<Unit filename="../jspec2/src/turn_by_turn.cc" />
+		<Unit filename="../src/beam_python.cc" />
+		<Unit filename="../src/cooler_python.cc" />
+		<Unit filename="../src/ecooling_python.cc" />
+		<Unit filename="../src/force_python.cc" />
+		<Unit filename="../src/ibs_python.cc" />
 		<Unit filename="../src/jspec2_python.cc" />
+		<Unit filename="../src/ring_python.cc" />
 		<Extensions>
 			<code_completion />
 			<envvars />
