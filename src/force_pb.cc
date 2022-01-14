@@ -12,6 +12,8 @@ using namespace pybind11::literals;
 using std::vector;
 
 void init_force(py::module& m) {
+    py::class_<FrictionForceSolver>(m, "FrictionForceSolver");
+    py::class_<ForceNonMag>(m, "ForceNonMag");
     py::class_<ForcePark, FrictionForceSolver>(m, "ForcePark")
         .def("set_time_cooler", &ForcePark::set_time_cooler)
         .def("set_mag_field", &ForcePark::set_mag_field)

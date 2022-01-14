@@ -41,8 +41,6 @@
 		<Unit filename="../jspec2/include/ibs.h" />
 		<Unit filename="../jspec2/include/ions.h" />
 		<Unit filename="../jspec2/include/luminosity.h" />
-		<Unit filename="../jspec2/include/math_parser.h" />
-		<Unit filename="../jspec2/include/muParserDLL.h" />
 		<Unit filename="../jspec2/include/particle_model.h" />
 		<Unit filename="../jspec2/include/ring.h" />
 		<Unit filename="../jspec2/include/rms_dynamic.h" />
@@ -56,23 +54,21 @@
 		<Unit filename="../jspec2/src/ibs.cc" />
 		<Unit filename="../jspec2/src/ions.cc" />
 		<Unit filename="../jspec2/src/luminosity.cc" />
-		<Unit filename="../jspec2/src/math_parser.cc" />
 		<Unit filename="../jspec2/src/particle_model.cc" />
 		<Unit filename="../jspec2/src/ring.cc" />
 		<Unit filename="../jspec2/src/rms_dynamic.cc" />
 		<Unit filename="../jspec2/src/simulator.cc" />
 		<Unit filename="../jspec2/src/turn_by_turn.cc" />
-		<Unit filename="../src/beam_python.cc" />
-		<Unit filename="../src/cooler_python.cc" />
-		<Unit filename="../src/ecooling_python.cc" />
-		<Unit filename="../src/force_python.cc" />
-		<Unit filename="../src/ibs_python.cc" />
-		<Unit filename="../src/jspec2_python.cc" />
-		<Unit filename="../src/ring_python.cc" />
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Unit filename="../src/beam_pb.cc" />
+		<Unit filename="../src/cooler_pb.cc" />
+		<Unit filename="../src/ecooling_pb.cc" />
+		<Unit filename="../src/force_pb.cc" />
+		<Unit filename="../src/ibs_pb.cc" />
+		<Unit filename="../src/ions_pb.cc" />
+		<Unit filename="../src/jspec2_pb.cc" />
+		<Unit filename="../src/luminosity_pb.cc" />
+		<Unit filename="../src/ring_pb.cc" />
+		<Unit filename="../src/simulators_pb.cc" />
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

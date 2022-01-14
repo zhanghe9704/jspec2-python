@@ -33,6 +33,8 @@ void init_ions(py::module& m) {
         .value("DS", Phase::DS)
         .value("DP_P", Phase::DP_P);
 
+    py::class_<Ions>(m, "Ions");
+
     py::class_<Ions_MonteCarlo,Ions>(m, "Ions_MonteCarlo")
         .def(py::init<int>())
         .def(py::init<std::string, int, int, bool, int>())

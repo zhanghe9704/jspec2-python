@@ -9,7 +9,8 @@ PYTHON_INC = $(shell python3 -m pybind11 --includes)
 CFLAGS = -O3 -Wall -shared -std=c++14 -fPIC $(PYTHON_INC) -I$(INCDIR)
 
 #LIBS = -lm -lgsl -lgslcblas
-LIBS =  -L$(LIBDIR) -s -Wl,-rpath=$(LIBDIR) -lm -l:libmuparser.so.2 -lgsl -lgslcblas
+#LIBS =  -L$(LIBDIR) -s -Wl,-rpath=$(LIBDIR) -lm -l:libmuparser.so.2 -lgsl -lgslcblas
+LIBS =  -L$(LIBDIR) -s -Wl,-rpath=$(LIBDIR) -lm -lgsl -lgslcblas
 
 SRC = $(wildcard src/*.cc)
 SRC += $(wildcard jspec2/src/*.cc)

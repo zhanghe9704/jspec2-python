@@ -194,13 +194,13 @@ void init_beam(py::module &m) {
         .value("VARY_Z", Temperature::VARY_Z);
 
     py::enum_<EBeamV>(m, "EBeamV", py::arithmetic())
-        .value("", EBeamV::TPR_TR)
-        .value("", EBeamV::TPR_L)
-        .value("", EBeamV::V_RMS_TR)
-        .value("", EBeamV::V_RMS_L)
-        .value("", EBeamV::V_AVG_X)
-        .value("", EBeamV::V_AVG_Y)
-        .value("", EBeamV::V_AVG_L);
+        .value("TPR_TR", EBeamV::TPR_TR)
+        .value("TPR_L", EBeamV::TPR_L)
+        .value("V_RMS_TR", EBeamV::V_RMS_TR)
+        .value("V_RMS_L", EBeamV::V_RMS_L)
+        .value("V_AVG_X", EBeamV::V_AVG_X)
+        .value("V_AVG_Y", EBeamV::V_AVG_Y)
+        .value("V_AVG_L", EBeamV::V_AVG_L);
 
 //    py::enum_<EdgeEffect>(m, "EdgeEffect", py::arithmetic())
 //        .value("Rising", EdgeEffect::Rising)
