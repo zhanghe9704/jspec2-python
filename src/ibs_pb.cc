@@ -27,12 +27,40 @@ void init_ibs(py::module& m) {
         .def("set_nu", &IBSSolver_Martini::set_nu)
         .def("set_nv", &IBSSolver_Martini::set_nv)
         .def("set_nz", &IBSSolver_Martini::set_nz)
+        .def("log_c", &IBSSolver_Martini::log_c)
+        .def("k", &IBSSolver_Martini::k)
+        .def("set_log_c", &IBSSolver_Martini::set_log_c)
+        .def("set_k", &IBSSolver_Martini::set_k)
+        .def("set_ibs_by_element", &IBSSolver_Martini::set_ibs_by_element)
         .def("rate", py::overload_cast<const Lattice&, const Beam&>(&IBSSolver_Martini::rate));
-//        .def("rate", &IBSSolver_Martini::rate);
 
     py::class_<IBSSolver_BM, IBSSolver>(m, "IBSSolver_BM")
         .def(py::init<double, double>(), py::arg("log_c"), py::arg("k") = 0)
+        .def("log_c", &IBSSolver_BM::log_c)
+        .def("k", &IBSSolver_BM::k)
+        .def("set_log_c", &IBSSolver_BM::set_log_c)
+        .def("set_k", &IBSSolver_BM::set_k)
+        .def("set_ibs_by_element", &IBSSolver_BM::set_ibs_by_element)
         .def("rate", py::overload_cast<const Lattice&, const Beam&>(&IBSSolver_BM::rate));
-//        .def("rate", &IBSSolver_BM::rate);
+
+    py::class_<IBSSolver_BMZ, IBSSolver>(m, "IBSSolver_BMZ")
+        .def(py::init<int, double, double>(), py::arg("nt"), py::arg("log_c"), py::arg("k") = 0)
+        .def("set_factor", &IBSSolver_BMZ::set_factor)
+        .def("log_c", &IBSSolver_BMZ::log_c)
+        .def("k", &IBSSolver_BMZ::k)
+        .def("set_log_c", &IBSSolver_BMZ::set_log_c)
+        .def("set_k", &IBSSolver_BMZ::set_k)
+        .def("set_ibs_by_element", &IBSSolver_BMZ::set_ibs_by_element)
+        .def("rate", py::overload_cast<const Lattice&, const Beam&>(&IBSSolver_BMZ::rate));
+
+    py::class_<IBSSolver_BM_Complete, IBSSolver>(m, "IBSSolver_BMC")
+        .def(py::init<int, double, double>(), py::arg("nt"), py::arg("log_c"), py::arg("k") = 0)
+        .def("set_factor", &IBSSolver_BM_Complete::set_factor)
+        .def("log_c", &IBSSolver_BM_Complete::log_c)
+        .def("k", &IBSSolver_BM_Complete::k)
+        .def("set_log_c", &IBSSolver_BM_Complete::set_log_c)
+        .def("set_k", &IBSSolver_BM_Complete::set_k)
+        .def("set_ibs_by_element", &IBSSolver_BM_Complete::set_ibs_by_element)
+        .def("rate", py::overload_cast<const Lattice&, const Beam&>(&IBSSolver_BM_Complete::rate));
 
 }

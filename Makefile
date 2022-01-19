@@ -7,6 +7,7 @@ INCDIR = jspec2/include
 LIBDIR = jspec2/lib
 PYTHON_INC = $(shell python3 -m pybind11 --includes)
 CFLAGS = -O3 -Wall -shared -std=c++14 -fPIC $(PYTHON_INC) -I$(INCDIR)
+OMPFLAGS = 
 
 #LIBS = -lm -lgsl -lgslcblas
 #LIBS =  -L$(LIBDIR) -s -Wl,-rpath=$(LIBDIR) -lm -l:libmuparser.so.2 -lgsl -lgslcblas
@@ -26,10 +27,10 @@ DEPS = $(wildcard $(INCDIR)/*.h)
 all = $(TARGET_LIB)
 
 $(TARGET_LIB): $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS) $(OMPFLAGS)
 
 %.o: %.cc $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
+	$(CC) -c -o $@ $< $(CFLAGS) $(OMPFLAGS)
 
 .PHONY: clean
 clean:
