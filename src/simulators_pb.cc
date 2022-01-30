@@ -17,7 +17,9 @@ using namespace pybind11::literals;
 using std::vector;
 
 void init_simulators(py::module& m) {
-    py::class_<ParticleModel>(m, "ParticleModel")
+    py::class_<Simulator>(m, "Simulator");
+
+    py::class_<ParticleModel, Simulator>(m, "ParticleModel")
         .def(py::init<double, int>())
         .def("set_ibs", &ParticleModel::set_ibs)
         .def("set_ecool", &ParticleModel::set_ecool)
@@ -32,7 +34,7 @@ void init_simulators(py::module& m) {
         .def("run", &ParticleModel::run)
         .def("resize_rdn", &ParticleModel::resize_rdn);
 
-    py::class_<RMSModel>(m, "RMSModel")
+    py::class_<RMSModel, Simulator>(m, "RMSModel")
         .def(py::init<double, int>())
         .def("set_ibs", &RMSModel::set_ibs)
         .def("set_ecool", &RMSModel::set_ecool)
@@ -46,7 +48,7 @@ void init_simulators(py::module& m) {
         .def("set_calc_lum", &RMSModel::set_calc_lum)
         .def("run", &RMSModel::run);
 
-    py::class_<TurnByTurnModel>(m, "TurnByTurnModel")
+    py::class_<TurnByTurnModel, ParticleModel>(m, "TurnByTurnModel")
         .def(py::init<double, int>())
         .def("set_ibs", &TurnByTurnModel::set_ibs)
         .def("set_ecool", &TurnByTurnModel::set_ecool)

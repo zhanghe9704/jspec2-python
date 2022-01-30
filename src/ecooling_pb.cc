@@ -29,6 +29,7 @@ void init_ecooling(py::module& m) {
         .value("FORCE_Z", ECoolRateScratch::FORCE_Z);
 
     py::class_<ECoolRate>(m, "ECoolRate")
+        .def("set_save_force", &ECoolRate::set_save_force)
         .def("set_dual_force_solver", &ECoolRate::set_dual_force_solver)
         .def("set_second_force_solver", &ECoolRate::set_second_force_solver)
         .def("adjust_rate", &ECoolRate::adjust_rate)
@@ -36,4 +37,11 @@ void init_ecooling(py::module& m) {
         .def("t_cooler", &ECoolRate::t_cooler)
         .def("set_n_long_sample", &ECoolRate::set_n_long_sample)
         .def("ecool_rate", &ECoolRate::ecool_rate);
+
+    py::class_<ForceCurve, ECoolRate>(m, "ForceCurve")
+        .def("set_n_tr", &ForceCurve::set_n_tr)
+        .def("set_electron_density", &ForceCurve::set_electron_density)
+        .def("set_dp_p", &ForceCurve::set_dp_p)
+        .def("set_angle", &ForceCurve::set_angle)
+        .def("force_to_file", &ForceCurve::force_to_file);
 }
