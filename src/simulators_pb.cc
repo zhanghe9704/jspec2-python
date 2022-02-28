@@ -20,7 +20,7 @@ void init_simulators(py::module& m) {
     py::class_<Simulator>(m, "Simulator");
 
     py::class_<ParticleModel, Simulator>(m, "ParticleModel")
-        .def(py::init<double, int>())
+        .def(py::init<double, int>(),py::arg("time"),py::arg("n_step"))
         .def("set_ibs", &ParticleModel::set_ibs)
         .def("set_ecool", &ParticleModel::set_ecool)
         .def("set_ion_save", &ParticleModel::set_ion_save)
@@ -35,7 +35,7 @@ void init_simulators(py::module& m) {
         .def("resize_rdn", &ParticleModel::resize_rdn);
 
     py::class_<RMSModel, Simulator>(m, "RMSModel")
-        .def(py::init<double, int>())
+        .def(py::init<double, int>(),py::arg("time"),py::arg("n_step"))
         .def("set_ibs", &RMSModel::set_ibs)
         .def("set_ecool", &RMSModel::set_ecool)
         .def("set_ion_save", &RMSModel::set_ion_save)
@@ -49,7 +49,7 @@ void init_simulators(py::module& m) {
         .def("run", &RMSModel::run);
 
     py::class_<TurnByTurnModel, ParticleModel>(m, "TurnByTurnModel")
-        .def(py::init<double, int>())
+        .def(py::init<double, int>(),py::arg("time"),py::arg("n_step"))
         .def("set_ibs", &TurnByTurnModel::set_ibs)
         .def("set_ecool", &TurnByTurnModel::set_ecool)
         .def("set_ion_save", &TurnByTurnModel::set_ion_save)

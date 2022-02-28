@@ -28,7 +28,8 @@ void init_ecooling(py::module& m) {
         .value("FORCE_Y", ECoolRateScratch::FORCE_Y)
         .value("FORCE_Z", ECoolRateScratch::FORCE_Z);
 
-    py::class_<ECoolRate>(m, "ECoolRate")
+    py::class_<ECoolRate>(m, "ECool")
+        .def(py::init<>())
         .def("set_save_force", &ECoolRate::set_save_force)
         .def("set_dual_force_solver", &ECoolRate::set_dual_force_solver)
         .def("set_second_force_solver", &ECoolRate::set_second_force_solver)
@@ -36,7 +37,11 @@ void init_ecooling(py::module& m) {
         .def("scratch", &ECoolRate::scratch)
         .def("t_cooler", &ECoolRate::t_cooler)
         .def("set_n_long_sample", &ECoolRate::set_n_long_sample)
-        .def("ecool_rate", &ECoolRate::ecool_rate);
+        .def("ecool_rate", &ECoolRate::ecool_rate)
+        .def("rate", (std::tuple<double,double,double>(ECoolRate::*)(FrictionForceSolver&, Beam&, int, Cooler&, EBeam&,Ring&))
+             &ECoolRate::rate, "force"_a, "ion"_a, "n_sample"_a, "cooler"_a, "ebeam"_a, "ring"_a)
+        .def("rate", (std::tuple<double,double,double>(ECoolRate::*)(FrictionForceSolver&, Beam&, Ions&, Cooler&, EBeam&,Ring&))
+             &ECoolRate::rate, "force"_a, "ion"_a, "ion_sample"_a, "cooler"_a, "ebeam"_a, "ring"_a);
 
     py::class_<ForceCurve, ECoolRate>(m, "ForceCurve")
         .def("set_n_tr", &ForceCurve::set_n_tr)

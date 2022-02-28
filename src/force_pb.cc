@@ -12,9 +12,11 @@ using namespace pybind11::literals;
 using std::vector;
 
 void init_force(py::module& m) {
-    py::class_<FrictionForceSolver>(m, "FrictionForceSolver");
-    py::class_<ForceNonMag>(m, "ForceNonMag");
-    py::class_<ForcePark, FrictionForceSolver>(m, "ForcePark")
+    py::class_<FrictionForceSolver> friction_force(m, "FrictionForceSolver");
+    py::class_<ForceNonMag, FrictionForceSolver>(m, "ForceNonMag");
+//    py::class_<ForcePark, FrictionForceSolver>(m, "ForcePark")
+    py::class_<ForcePark>(m, "ForcePark", friction_force)
+        .def(py::init<>())
         .def("set_time_cooler", &ForcePark::set_time_cooler)
         .def("set_mag_field", &ForcePark::set_mag_field)
         .def("t_cooler", &ForcePark::t_cooler)

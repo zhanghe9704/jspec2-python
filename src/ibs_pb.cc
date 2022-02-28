@@ -20,7 +20,7 @@ void init_ibs(py::module& m) {
     py::class_<IBSSolver>(m, "IBSSolver");
 
     py::class_<IBSSolver_Martini, IBSSolver>(m, "IBSSolver_Martini")
-        .def(py::init<int, int, int, double, double>(), py::arg("nu"), py::arg("nv"), py::arg("nz"), py::arg("log_c")=0, py::arg("k") = 0)
+        .def(py::init<int, int, int, double, double>(), py::arg("nu"), py::arg("nv"), py::arg("nz"), py::arg("log_c")=20, py::arg("k") = 0)
         .def("nu", &IBSSolver_Martini::nu)
         .def("nv", &IBSSolver_Martini::nv)
         .def("nz", &IBSSolver_Martini::nz)

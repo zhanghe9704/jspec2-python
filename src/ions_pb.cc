@@ -36,8 +36,9 @@ void init_ions(py::module& m) {
     py::class_<Ions>(m, "Ions");
 
     py::class_<Ions_MonteCarlo,Ions>(m, "Ions_MonteCarlo")
-        .def(py::init<int>())
-        .def(py::init<std::string, int, int, bool, int>())
+        .def(py::init<int>(),py::arg("n"))
+        .def(py::init<std::string, int, int, bool, int>(), py::arg("filename"), py::arg("n"), py::arg("skip")=0,
+             py::arg("binary")=false, py::arg("buffer")=1000)
         .def("adjust_disp", &Ions_MonteCarlo::adjust_disp)
         .def("adjust_disp_inv", &Ions_MonteCarlo::adjust_disp_inv)
         .def("save_ions_sdds", &Ions_MonteCarlo::save_ions_sdds)

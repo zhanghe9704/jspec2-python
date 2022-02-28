@@ -2,6 +2,7 @@
 #include <pybind11/operators.h>
 #include <pybind11/stl.h>
 #include <functional>
+#include <stdlib.h>
 #include <tuple>
 #include <vector>
 
@@ -26,6 +27,7 @@ void init_simulators(py::module &);
 
 PYBIND11_MODULE(jspec, m) {
     m.doc() = "JSPEC lib";
+    m.def("srand", [] (double x){srand(x);});
     m.def("set_n_thread", [](int n){
         int res = -1;
         #ifdef _OPENMP
