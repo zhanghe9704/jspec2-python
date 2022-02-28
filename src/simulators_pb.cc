@@ -31,7 +31,9 @@ void init_simulators(py::module& m) {
         .def("set_reset_time", &ParticleModel::set_reset_time)
         .def("set_overwrite", &ParticleModel::set_overwrite)
         .def("set_calc_lum", &ParticleModel::set_calc_lum)
-        .def("run", &ParticleModel::run)
+        .def("run", &ParticleModel::run, py::arg("ion"), py::arg("samples")=NULL, py::arg("cooler")=NULL,
+             py::arg("ebeam")=NULL, py::arg("ring")=NULL, py::arg("ibs_solver")=nullptr,
+             py::arg("ecool_solver")=nullptr, py::arg("force_solver")=nullptr, py::arg("lum_solver")=nullptr)
         .def("resize_rdn", &ParticleModel::resize_rdn);
 
     py::class_<RMSModel, Simulator>(m, "RMSModel")
@@ -46,7 +48,9 @@ void init_simulators(py::module& m) {
         .def("set_reset_time", &RMSModel::set_reset_time)
         .def("set_overwrite", &RMSModel::set_overwrite)
         .def("set_calc_lum", &RMSModel::set_calc_lum)
-        .def("run", &RMSModel::run);
+        .def("run", &RMSModel::run, py::arg("ion"), py::arg("samples")=NULL, py::arg("cooler")=NULL,
+             py::arg("ebeam")=NULL, py::arg("ring")=NULL, py::arg("ibs_solver")=nullptr,
+             py::arg("ecool_solver")=nullptr, py::arg("force_solver")=nullptr, py::arg("lum_solver")=nullptr);
 
     py::class_<TurnByTurnModel, ParticleModel>(m, "TurnByTurnModel")
         .def(py::init<double, int>(),py::arg("time"),py::arg("n_step"))
@@ -60,5 +64,7 @@ void init_simulators(py::module& m) {
         .def("set_reset_time", &TurnByTurnModel::set_reset_time)
         .def("set_overwrite", &TurnByTurnModel::set_overwrite)
         .def("set_calc_lum", &TurnByTurnModel::set_calc_lum)
-        .def("run", &TurnByTurnModel::run);
+        .def("run", &TurnByTurnModel::run, py::arg("ion"), py::arg("samples")=NULL, py::arg("cooler")=NULL,
+             py::arg("ebeam")=NULL, py::arg("ring")=NULL, py::arg("ibs_solver")=nullptr,
+             py::arg("ecool_solver")=nullptr, py::arg("force_solver")=nullptr, py::arg("lum_solver")=nullptr);
 }

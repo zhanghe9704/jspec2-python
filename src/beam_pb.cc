@@ -89,7 +89,7 @@ void init_beam(py::module &m) {
              double, double, double>(&EBeam::multi_density));
 
     py::class_<UniformCylinder, EBeam>(m, "UniformCylinder")
-        .def(py::init<double, double, double>())
+        .def(py::init<double, double, double>(), py::arg("current"), py::arg("radius"), py::arg("neutralisation")=2)
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int>(&UniformCylinder::density))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int,
              double, double, double>(&UniformCylinder::density))
@@ -99,7 +99,7 @@ void init_beam(py::module &m) {
         .def("length", &UniformCylinder::length);
 
     py::class_<UniformHollow, EBeam>(m, "UniformHollow")
-        .def(py::init<double, double, double>())
+        .def(py::init<double, double, double>(), py::arg("current"), , py::arg("in_radius"), py::arg("out_radius"))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int>(&UniformHollow::density))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int,
              double, double, double>(&UniformHollow::density))
@@ -110,7 +110,7 @@ void init_beam(py::module &m) {
         .def("in_radius", &UniformHollow::in_radius);
 
     py::class_<UniformHollowBunch, EBeam>(m, "UniformHollowBunch")
-        .def(py::init<double, double, double, double>())
+        .def(py::init<double, double, double, double>(), py::arg("current"), , py::arg("in_radius"), py::arg("out_radius"),py::arg("length"))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int>(&UniformHollowBunch::density))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int,
              double, double, double>(&UniformHollowBunch::density))
@@ -121,7 +121,7 @@ void init_beam(py::module &m) {
         .def("in_radius", &UniformHollowBunch::in_radius);
 
     py::class_<UniformBunch, EBeam>(m, "UniformBunch")
-        .def(py::init<double, double, double>())
+        .def(py::init<double, double, double>(), py::arg("current"), , py::arg("in_radius"), py::arg("length"))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int>(&UniformBunch::density))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int,
              double, double, double>(&UniformBunch::density))
@@ -131,7 +131,7 @@ void init_beam(py::module &m) {
         .def("radius", &UniformBunch::radius);
 
     py::class_<EllipticUniformBunch, EBeam>(m, "EllipticUniformBunch")
-        .def(py::init<double, double, double, double>())
+        .def(py::init<double, double, double, double>(), py::arg("current"), , py::arg("rh"), py::arg("rv"),py::arg("length"))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int>(&EllipticUniformBunch::density))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int,
              double, double, double>(&EllipticUniformBunch::density))
@@ -139,7 +139,7 @@ void init_beam(py::module &m) {
         .def("length", &EllipticUniformBunch::length);
 
     py::class_<GaussianBunch, EBeam>(m, "GaussianBunch")
-        .def(py::init<double, double, double, double>())
+        .def(py::init<double, double, double, double>(), py::arg("n"), py::arg("sigma_x"), py::arg("sigma_y"), py::arg("sigma_s"))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int>(&GaussianBunch::density))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int,
              double, double, double>(&GaussianBunch::density))
@@ -148,8 +148,8 @@ void init_beam(py::module &m) {
         .def("set_angles", &GaussianBunch::set_angles);
 
     py::class_<ParticleBunch, EBeam>(m, "ParticleBunch")
-        .def(py::init<double, std::string, double>())
-        .def(py::init<double, std::string>())
+        .def(py::init<double, std::string, double>(), py::arg("n"), py::arg("filename"), py::arg("length"))
+        .def(py::init<double, std::string>(), py::arg("n"), py::arg("filename"))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int>(&ParticleBunch::density))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int,
              double, double, double>(&ParticleBunch::density))
