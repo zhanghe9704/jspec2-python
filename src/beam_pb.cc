@@ -99,7 +99,7 @@ void init_beam(py::module &m) {
         .def("length", &UniformCylinder::length);
 
     py::class_<UniformHollow, EBeam>(m, "UniformHollow")
-        .def(py::init<double, double, double>(), py::arg("current"), , py::arg("in_radius"), py::arg("out_radius"))
+        .def(py::init<double, double, double>(), py::arg("current"), py::arg("in_radius"), py::arg("out_radius"))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int>(&UniformHollow::density))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int,
              double, double, double>(&UniformHollow::density))
@@ -110,7 +110,7 @@ void init_beam(py::module &m) {
         .def("in_radius", &UniformHollow::in_radius);
 
     py::class_<UniformHollowBunch, EBeam>(m, "UniformHollowBunch")
-        .def(py::init<double, double, double, double>(), py::arg("current"), , py::arg("in_radius"), py::arg("out_radius"),py::arg("length"))
+        .def(py::init<double, double, double, double>(), py::arg("current"), py::arg("in_radius"), py::arg("out_radius"),py::arg("length"))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int>(&UniformHollowBunch::density))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int,
              double, double, double>(&UniformHollowBunch::density))
@@ -121,7 +121,7 @@ void init_beam(py::module &m) {
         .def("in_radius", &UniformHollowBunch::in_radius);
 
     py::class_<UniformBunch, EBeam>(m, "UniformBunch")
-        .def(py::init<double, double, double>(), py::arg("current"), , py::arg("in_radius"), py::arg("length"))
+        .def(py::init<double, double, double>(), py::arg("current"), py::arg("in_radius"), py::arg("length"))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int>(&UniformBunch::density))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int,
              double, double, double>(&UniformBunch::density))
@@ -131,7 +131,7 @@ void init_beam(py::module &m) {
         .def("radius", &UniformBunch::radius);
 
     py::class_<EllipticUniformBunch, EBeam>(m, "EllipticUniformBunch")
-        .def(py::init<double, double, double, double>(), py::arg("current"), , py::arg("rh"), py::arg("rv"),py::arg("length"))
+        .def(py::init<double, double, double, double>(), py::arg("current"), py::arg("rh"), py::arg("rv"),py::arg("length"))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int>(&EllipticUniformBunch::density))
         .def("density", py::overload_cast<vector<double>&, vector<double>&, vector<double>&, vector<double>&, int,
              double, double, double>(&EllipticUniformBunch::density))

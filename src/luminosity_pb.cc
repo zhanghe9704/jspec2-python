@@ -31,6 +31,7 @@ void init_luminosity(py::module& m) {
         .def_readwrite("adjust_bet",&CollidingBeam::adjust_bet);
 
     py::class_<LuminositySolver>(m, "LuminositySolver")
+        .def(py::init<>())
         .def("set_distance", &LuminositySolver::set_distance)
         .def("set_freq", &LuminositySolver::set_freq)
         .def("set_match", &LuminositySolver::set_match)
